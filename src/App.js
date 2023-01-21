@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,37 +8,52 @@ import {
 import Home from './pages/Home';
 import Results from './pages/Results';
 import SingleView from './pages/SingleView';
-
+import { SearchContext } from './context/search';
 
 
 function App() {
- 
-  return (
-    
-     <Router>
-     
-      <main>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/results" exact>
-            <Results />
-          </Route>
-          <Route path="/single_view" exact>
-            <SingleView />
-          </Route>
-          <Redirect>
-            <Redirect to="/" />
-          </Redirect>
+  const [animeData, setAnimeData] = useState([]);
+  const [singleData, setSingleData] = useState({});
 
-        </Switch>
-      </main>
+  const setData = (data) => {
+    setAnimeData(data);
+  };
 
-    </Router>
+  const setSingle = (data) => {
+    setSingleData(data);
+  };
+
+  const search = (searchTerm) => {
+    return fetch(
+      `https://api.jikan.moe/v4/anime?q=${searchTerm}&limit=20`
+    ).then((response) => response.json());
+
+  };
  
-  );
   
-}
-
-export default App;
+    return (
+      <SearchContext.Provider value={{search, animeData, setData, singleData, setSingle }}>
+       
+     <Router>
+      
+        <main>
+          <Switch>
+            <Route path="/" exact>
+              <Home/>
+            </Route>
+            <Route path="/results" exact>
+              <Results/>
+            </Route>
+            <Route path="/single-view" exact>
+              <SingleView/>
+            </Route>
+            <Redirect to="/" />
+          </Switch>
+        </main>
+      </Router>
+       
+      </SearchContext.Provider>
+    );
+    }
+  
+  export default App;
