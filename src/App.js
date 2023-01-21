@@ -13,12 +13,19 @@ function App() {
       MORE
       VERTICAL
       YEP
+      And
+      comes
+      with 50%
+      more 
+      air.
       */
+
+
       }
 
       <div className="test-change">
-        
-      </div>
+        <img className="test" src="https://media.tenor.com/kIieuwK2ZR8AAAAd/among-us-whip-nae-nae.gif"/>
+          </div>
 
     </div>
   );
