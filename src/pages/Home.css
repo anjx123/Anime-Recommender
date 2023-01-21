@@ -1,0 +1,14 @@
+.Home-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.TextField {
+    background-color: white;
+    fill: white;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    justify-content: center;
+}
