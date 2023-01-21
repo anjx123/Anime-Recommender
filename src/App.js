@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
+import Home from './pages/Home';
+import Results from './pages/Results';
+import SingleView from './pages/SingleView';
+
+
 
 function App() {
+ 
   return (
-    <div className="App">
-      {
-      /* 
-      yep, just making a comment change is all. 
-      maybe we should delete the pepega branch later
-      */
-      }
+    
+     <Router>
+     
+      <main>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/results" exact>
+            <Results />
+          </Route>
+          <Route path="/single_view" exact>
+            <SingleView />
+          </Route>
+          <Redirect>
+            <Redirect to="/" />
+          </Redirect>
 
-      <div className="test-change">
-        <img 
-          className="test" src="https://media.tenor.com/kIieuwK2ZR8AAAAd/among-us-whip-nae-nae.gif"
-          alt="insert alt text here"
-        />
-      </div>
+        </Switch>
+      </main>
 
-    </div>
+    </Router>
+ 
   );
+  
 }
 
 export default App;
