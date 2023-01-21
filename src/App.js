@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
+import Home from './pages/Home';
+import Results from './pages/Results';
+import SingleView from './pages/SingleView';
+
+
 
 function App() {
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+     <Router>
+     
+      <main>
+        <Switch>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/results" exact>
+            <Results />
+          </Route>
+          <Route path="/single_view" exact>
+            <SingleView />
+          </Route>
+          <Redirect>
+            <Redirect to="/" />
+          </Redirect>
+
+        </Switch>
+      </main>
+
+    </Router>
+  
   );
+  
 }
 
 export default App;
+
+/* 
+    <div className="App">
+        <Profile
+          image="https://media.tenor.com/HNbrngaH3zoAAAAC/amongla-swag.gif"
+          description="XYZZZZZZZZZ"
+          name="Sus 2" />
+
+        <Profile
+          image="https://media.tenor.com/kIieuwK2ZR8AAAAd/among-us-whip-nae-nae.gif"
+          description="sobsobsob"
+          name="SOBBING" />
+
+        <button> Button </button>
+
+      </div> */
