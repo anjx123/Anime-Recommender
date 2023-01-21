@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useRef } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -15,6 +15,7 @@ function App() {
   const [animeData, setAnimeData] = useState([]);
   const [singleData, setSingleData] = useState({});
 
+  
   const setData = (data) => {
     setAnimeData(data);
   };
@@ -31,11 +32,13 @@ function App() {
   };
  
   
-    return (
-      <SearchContext.Provider value={{search, animeData, setData, singleData, setSingle }}>
-       
-     <Router>
+  return (
+    <SearchContext.Provider value={{search, animeData, setData, singleData, setSingle }}>
+
       
+
+      <Router>
+
         <main>
           <Switch>
             <Route path="/" exact>
@@ -50,10 +53,11 @@ function App() {
             <Redirect to="/" />
           </Switch>
         </main>
+
       </Router>
-       
-      </SearchContext.Provider>
-    );
-    }
+      
+    </SearchContext.Provider>
+  );
+}
   
-  export default App;
+export default App;
