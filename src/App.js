@@ -24,8 +24,11 @@ function App() {
       }
 
       <div className="test-change">
-        <img className="test" src="https://media.tenor.com/kIieuwK2ZR8AAAAd/among-us-whip-nae-nae.gif"/>
-          </div>
+        <img 
+          className="test" src="https://media.tenor.com/kIieuwK2ZR8AAAAd/among-us-whip-nae-nae.gif"
+          alt="text"
+        />
+      </div>
 
     </div>
   );
