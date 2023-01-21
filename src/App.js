@@ -36,25 +36,9 @@ function App() {
       </main>
 
     </Router>
-  
+ 
   );
   
 }
 
 export default App;
-
-/* 
-    <div className="App">
-        <Profile
-          image="https://media.tenor.com/HNbrngaH3zoAAAAC/amongla-swag.gif"
-          description="XYZZZZZZZZZ"
-          name="Sus 2" />
-
-        <Profile
-          image="https://media.tenor.com/kIieuwK2ZR8AAAAd/among-us-whip-nae-nae.gif"
-          description="sobsobsob"
-          name="SOBBING" />
-
-        <button> Button </button>
-
-      </div> */
