@@ -28,6 +28,7 @@ const Home = () => {
     };
 
     return (
+        // <div className="Home-container">
         <Grid container className="Home-container" direction="column" justify="center" alignContent="center" alignItems="center">
             
             <Grid item>
@@ -35,19 +36,17 @@ const Home = () => {
                 <Grid item className="TextField">
                     Image: {input} and {output}
                      <h1>Home</h1>
-
                 </Grid>
 
                 <Grid item>
                    <form className="home__form">
+                    
                     <FormControl type="submit">
                         <Input className="input-test" ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
                         <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
                             <Search/>
                         </IconButton>
                     </FormControl>
-
-
 
                    </form>
                 </Grid>
@@ -56,19 +55,30 @@ const Home = () => {
 
                     <h2>Username: {input}</h2>
 
-                    <div className="card-test">
+                    <div className="InfoCards">
+
                         <InfoCard
-                        title="Anime 1"
-                        description="This is test anime #1"
-                        imgsrc="https://images.pexels.com/photos/1486974/pexels-photo-1486974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                        imgalt="alt1"
+                            title="Anime 1"
+                            description="This is test anime #1"
+                            imgsrc="https://images.pexels.com/photos/1486974/pexels-photo-1486974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                            imgalt="alt1"
                         />
+
+                        <InfoCard
+                            title="Anime 2"
+                            description="This is test anime #2"
+                            imgsrc="https://m.media-amazon.com/images/M/MV5BZjE0YjVjODQtZGY2NS00MDcyLThhMDAtZGQwMTZiOWNmNjRiXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg"
+                            imgalt="alt2"
+                        />
+
                     </div>
+
                 </Grid>
 
             </Grid>
   
         </Grid>
+        // </div>
     );
 };
 

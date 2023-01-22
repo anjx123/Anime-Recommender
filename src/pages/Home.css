@@ -4,11 +4,17 @@
     flex-direction: column;
 }
 
-.TextField {
-    background-color: white;
-    fill: white;
+/* .TextField {
     display: flex;
-    flex-direction: column;
-    width: 700px;
-    justify-content: center;
+    flex-direction: row;
+} */
+
+h1 {
+    color: brown;
+}
+
+.InfoCards {
+    background-color: brown;
+    padding: 0;
+    display: flex;
 }
