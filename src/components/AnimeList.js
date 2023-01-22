@@ -23,16 +23,17 @@ const AnimeList = (props) => {
     const p = percentage(los, g);
     const r = relative(p);
     const ag = animGrouper(d);
-    var fa = [];
 
     console.log(r + "aaa")
     console.log(ag + "bbb")
 
     const handleSearch = (event) => {
-       fa = findAnime(simplifyList(simpleList(crTags(r, ag))), rankings).sort(([a, b], [c, d]) => c - a || b - d);
+       findAnime(simplifyList(simpleList(crTags(r, ag))), rankings).sort(([a, b], [c, d]) => c - a || b - d);
+
     }
     
 
+    console.log(handleSearch)
 
 
 
@@ -48,11 +49,28 @@ const AnimeList = (props) => {
            </button>
             
 
-           {fa.map((anime) => (
+            {/* {log = props.data.map((anime) => (
+                anime.node.genres[0].name
+            ))} */}
 
-           <InfoCard key={anime[1].node.id} data={fa} anime={anime}/> 
+           
+        
+          
 
+
+{props.data.map((anime) => (
+           <InfoCard key={anime.node.id} data={props.data} anime={anime}/> 
            ))}
+            
+
+            {/* {help(los, props.data)} */}
+
+            {/* {props.data.map((anime) => (
+                anime.list_status.score
+            ))},
+            {props.data.map((anime) => (
+                anime.node.genres[0].name
+            ))} */}
 
          </ImageList>
     );
@@ -124,10 +142,10 @@ function adder(t, lot) {
     let rsf=[];
     for (let i = 0; i < lot.length; i++) {
         if (t[0].id === lot[i][0].id) {
-            lot.shift()
-        
             
+        
         rsf = rsf.concat([[lot[i][0], t[1] + lot[i][1] ]]);
+                   
         
         } else {
             rsf = rsf.concat([lot[i]])
@@ -256,7 +274,7 @@ function craftTag(n, log, s) {
 
 function getRanking() {
     return fetch(
-        `https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=50&fields=genres,synopsis,`, {
+        `https://api.myanimelist.net/v2/anime/season/2023/spring?sort=anime_score&limit=20&fields=synopsis,genres`, {
         method: 'GET',
         headers: {'X-MAL-CLIENT-ID': 'fbff9778d6f0ac20c5a30f6af55f207e'}
       })

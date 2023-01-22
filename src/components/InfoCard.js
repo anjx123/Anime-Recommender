@@ -7,15 +7,15 @@ import Paper from '@mui/material/Paper';
 import { maxHeight } from '@mui/system';
 
 function InfoCard(props) {
-    const id = props.anime[1].node.id
+    const id = props.anime.node.id
     const onClickHandler = () => {
         window.open("https://myanimelist.net/anime/".concat(id))
     }
 
     
-    var title = props.anime[1].node.title === null ? "": props.anime[1].node.title;
+    var title = props.anime.node.title === null ? "": props.anime.node.title;
         title = title.length > 20 ? `${title.substring(0, 20)}...`: title;
-    const imageUrl = props.anime[1].node.main_picture.large;
+    const imageUrl = props.anime.node.main_picture.large;
     var synopsis = props.anime.node.synopsis === null ? "": props.anime.node.synopsis;
     synopsis = synopsis.length > 120 ? `${synopsis.substring(0, 120)}...`: synopsis;
 
@@ -54,9 +54,9 @@ function InfoCard(props) {
                     </Typography>
                     </div>
                     
-                    {/* <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
+                    <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
                         Visit MyAnimeList Website Entry
-                    </Button> */}
+                    </Button>
 
                 
             </div>

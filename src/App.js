@@ -15,7 +15,11 @@ import PageHeader from './components/PageHeader';
 function App() {
   const [profileData, setProfileData] = useState([]);
   const [singleData, setSingleData] = useState({});
+  const [aniData, setAniData] = useState({});
 
+  const setAni = (data) => {
+    setAniData(data);
+  }
   
   const setData = (data) => {
     setProfileData(data);
@@ -27,7 +31,7 @@ function App() {
 
   const search = (searchTerm) => {
     return fetch(
-      `https://api.myanimelist.net/v2/users/${searchTerm}/animelist?limit=20&status=completed&sort=list_score&fields=mean,synopsis,genres,popularity,rank,media_type,start_season,list_status`, {
+      `https://api.myanimelist.net/v2/users/${searchTerm}/animelist?limit=40&status=completed&sort=list_score&fields=mean,synopsis,genres,popularity,rank,media_type,start_season,list_status`, {
       method: 'GET',
       headers: {'X-MAL-CLIENT-ID': 'fbff9778d6f0ac20c5a30f6af55f207e'}
     })
@@ -37,7 +41,7 @@ function App() {
  
 
   return (
-    <SearchContext.Provider value={{search, profileData, setData, singleData, setSingle }}>
+    <SearchContext.Provider value={{search, profileData, setData, singleData, setSingle, aniData, setAni }}>
 
       <Router>
       <PageHeader/>
