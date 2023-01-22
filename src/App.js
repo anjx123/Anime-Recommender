@@ -27,7 +27,7 @@ function App() {
 
   const search = (searchTerm) => {
     return fetch(
-      `https://api.myanimelist.net/v2/users/${searchTerm}/animelist?limit=20&status=completed&sort=list_score&fields=mean,synopsis`, {
+      `https://api.myanimelist.net/v2/users/${searchTerm}/animelist?limit=20&status=completed&sort=list_score&fields=mean,synopsis,genre,popularity,rank,media_type,start_season,list_status`, {
       method: 'GET',
       headers: {'X-MAL-CLIENT-ID': 'fbff9778d6f0ac20c5a30f6af55f207e'}
     })

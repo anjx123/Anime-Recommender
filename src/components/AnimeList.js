@@ -8,7 +8,7 @@ const AnimeList = (props) => {
     return (
         <ImageList>
         {props.data.map((anime) => (
-           <InfoCard key={anime.node.id} anime={anime}/> 
+           <InfoCard key={anime.node.id} data={props.data} anime={anime}/> 
            ))}
          </ImageList>
     );
