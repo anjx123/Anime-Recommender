@@ -6,7 +6,7 @@ import './AnimeList.css'
 
 const AnimeList = (props) => {
     return (
-        <ImageList>
+        <ImageList variant="standard">
         {props.data.map((anime) => (
            <InfoCard key={anime.node.id} anime={anime}/> 
            ))}

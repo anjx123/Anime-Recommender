@@ -16,35 +16,49 @@ function InfoCard(props) {
     title = title.length > 20 ? `${title.substring(0, 20)}...`: title;
     const imageUrl = props.anime.node.main_picture.large;
     var synopsis = props.anime.node.synopsis === null ? "": props.anime.node.synopsis;
-    synopsis = synopsis.length > 50 ? `${synopsis.substring(0, 50)}...`: synopsis;
+    synopsis = synopsis.length > 120 ? `${synopsis.substring(0, 120)}...`: synopsis;
+
+    // !!! wishlist for the ranking of the recommendations
 
     return (
         <div className="InfoCard-container">
+            
+            <Paper className="animeCard__paper">
+
             <div className="InfoCard-set">
-                <Paper className="animeCard__paper">
-                <img 
-                    src={imageUrl} 
-                    alt={title}
-                    style={{ maxHeight: 300}}
-                    height="400"
-                />
+
+                    <div className="card-title">
+                        <h2> 
+                            {/* !!! FIGURE OUT SOME WAY TO PUT THE RANKING HERE FOLKS */}
+                            1. {/* RIGHT HERE */}
+                            {title} 
+                        </h2> 
+                    </div>
+
+                    
+                    <img 
+                        src={imageUrl} 
+                        alt={title}
+                        style={{ maxHeight: 500}}
+                        width="80%%"
+                        height="80%"
+                    />
+
+                    <div className="card-detail">
+                    <Typography variant="body2" component="h2" paragraph={true}>
+                        {synopsis}
+                    </Typography>
+                    </div>
+                    
+                    {/* <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
+                        Visit MyAnimeList Website Entry
+                    </Button> */}
+
                 
-
-                <Typography variant="h5" component="h2"> 
-                    {title} 
-                </Typography>
-
-                <Typography variant="body2" component="h2" paragraph={true}>
-                    {synopsis}
-                </Typography>
-                <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
-                    Visit Website
-                </Button>
-
-                </Paper> 
-
-        
             </div>
+
+            </Paper> 
+
         </div>
     )
 }

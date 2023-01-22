@@ -1,10 +1,11 @@
 .PageHeader-container {
-    background-color: white;
+    background-color: #22567a;
     padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     max-height: fit-content;
+    /* border-radius: 20px; */
 }
 
 .header {
@@ -27,7 +28,14 @@
 }
 
 .home-text {
-    font-size: 16px
+    font-size: 16px;
+    color: white;
+    font-family: "Prompt", sans-serif;
+}
+
+.home-text:hover {
+    /* color: red; */
+    text-decoration: none;
 }
 
 .search-section {
@@ -42,4 +50,8 @@
     display: flex;  
     flex-direction: row;
     align-items: center;
+}
+
+.input-test {
+    color: white;
 }

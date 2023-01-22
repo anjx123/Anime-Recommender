@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&display=swap');
+
 body {
-    background-color: bisque;
+    background-color: #b6cfd6;
+    font-family: Tahoma, sans-serif;
 }

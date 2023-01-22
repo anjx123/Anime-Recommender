@@ -32,28 +32,24 @@ const Home = () => {
         // <div className="Home-container">
         <Grid container className="Home-container" direction="column" justifyContent="center" alignContent="center" alignItems="center">
             
-            <Grid item justifyContent="center" alignItems="center">
-
-                <Grid item>
-                   <form className="home__form-main">
-                    <FormControl type="submit">
-                        <div className="form-items--main">
-                            <div className="form-items--main-name">
-                                <h2>ANIME RECOMMENDER</h2>
-                            </div>
-                            
-                            <div className="form-items--main-search">
-                                <Input className="input-test" ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
-                                <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
-                                    <Search/>
-                                </IconButton>
-                            </div>
-                            
+            <Grid item>
+                <form className="home__form-main">
+                <FormControl type="submit">
+                    <div className="form-items--main">
+                        <div className="form-items--main-name">
+                            <h2>ANIME RECOMMENDER</h2>
                         </div>
-                    </FormControl>
-                   </form>
-                </Grid>
-
+                        
+                        <div className="form-items--main-search">
+                            <Input className="input-test" ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
+                            <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
+                                <Search/>
+                            </IconButton>
+                        </div>
+                        
+                    </div>
+                </FormControl>
+                </form>
             </Grid>
 
             {/* <Grid item>
