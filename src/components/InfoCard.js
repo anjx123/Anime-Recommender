@@ -30,7 +30,10 @@ function InfoCard(props) {
                 />
                 
 
-                <Typography variant="h5" component="h2"> {title} </Typography>
+                <Typography variant="h5" component="h2"> 
+                    {title} 
+                </Typography>
+
                 <Typography variant="body2" component="h2" paragraph={true}>
                     {synopsis}
                 </Typography>

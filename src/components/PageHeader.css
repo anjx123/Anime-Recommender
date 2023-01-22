@@ -1,0 +1,19 @@
+.PageHeader-container {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: fit-content;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 20px 0 20px;
+}
+
+.header-image {
+    padding: 10px;
+}

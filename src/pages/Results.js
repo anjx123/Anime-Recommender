@@ -3,6 +3,7 @@ import AnimeList from '../components/AnimeList';
 import { SearchContext } from '../context/search';
 import { Box } from '@mui/system';
 import { Typography } from '@mui/material';
+import './Results.css'
 
 const Results = () => {
     const search = useContext(SearchContext);
@@ -28,9 +29,9 @@ const Results = () => {
     }, [search]);
 
     return (
-        <Box mt={2}> 
+        <div className="Box"> 
         {(dataExists && <AnimeList data={search.profileData} />) || <Typography variant="h2"> 'There are no search results' </Typography>}
-        </Box>
+        </div>
     );
 };
 

@@ -34,12 +34,6 @@ const Home = () => {
             
             <Grid item justifyContent="center" alignItems="center">
 
-                <Grid item className="TextField">
-                    Input: {input} | Output: {output}
-                </Grid>
-
-                <Grid item md={2}>
-                </Grid>
 
                 <Grid item>
                    <form className="home__form">
@@ -55,9 +49,7 @@ const Home = () => {
             </Grid>
 
             <Grid item>
-                    <h2>Username: {input}</h2>
-
-                
+                    <h2>Username: {input}</h2>                
             </Grid>
 
         </Grid>

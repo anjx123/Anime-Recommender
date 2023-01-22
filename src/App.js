@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Results from './pages/Results';
 import SingleView from './pages/SingleView';
 import { SearchContext } from './context/search';
+import PageHeader from './components/PageHeader';
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
   return (
     <SearchContext.Provider value={{search, profileData, setData, singleData, setSingle }}>
 
-      
+      <PageHeader/>
 
       <Router>
 
