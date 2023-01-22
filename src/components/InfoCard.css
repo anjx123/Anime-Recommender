@@ -15,11 +15,25 @@
 
 .InfoCard-set {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .InfoCard-detail {
     display: flex;
     flex-direction: column;
     padding: 0 20px 0 20px;
+}
+
+.animeCard__paper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.animeCard__paper:hover {
+    background-color: lightgrey;
+    opacity: 0.8;
 }
