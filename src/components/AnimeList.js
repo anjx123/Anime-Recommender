@@ -4,7 +4,6 @@ import { ImageList } from '@mui/material';
 import InfoCard from './InfoCard';
 import './AnimeList.css'
 import { Group } from '@mui/icons-material';
-import Tagger from './Tagger';
 
 import Tagger from './Tagger';
 
@@ -52,59 +51,59 @@ const AnimeList = (props) => {
             {props.data.map((anime) => (<InfoCard key={anime.node.id} anime={anime}/>))}
         </ImageList>
 
-        // // FOLLOWING CODE BLOCK IS ARTICIALLY MERGED. 10:33am 
-         <ImageList variant="standard">     
+        // // // FOLLOWING CODE BLOCK IS ARTICIALLY MERGED. 10:33am 
+        //  <ImageList variant="standard">     
             
-             <Tagger ag={ag} r={r}/>
+        //      <Tagger ag={ag} r={r}/>
 
-             {/* {log = props.data.map((anime) => (
-                 anime.node.genres[0].name
-             ))} */}
+        //      {/* {log = props.data.map((anime) => (
+        //          anime.node.genres[0].name
+        //      ))} */}
 
-             {/* {help(los, props.data)} */}
+        //      {/* {help(los, props.data)} */}
 
-             {/* {props.data.map((anime) => (
-                 anime.list_status.score
-             ))},
-             {props.data.map((anime) => (
-                 anime.node.genres[0].name
-             ))} */}
-
-         </ImageList>
-
-        
-        // EVERYTHING ELSE COMMENTED OUT BELOW IS OLD CODE FROM EARLIER ITERATIONS
-
-        // <ImageList variant="standard">     
-        //     <Grouper data={props}/>
-           
-        //     {los = props.data.map((anime) => (
-        //         anime.list_status.score
-        //     ))}
-        
-        <ImageList variant="standard">     
-            
-            <Tagger ag={ag} r={r}/>
-          
-
-        //     {/* {log = props.data.map((anime) => (
-        //         anime.node.genres[0].name
-        //     ))} */}
-
-
-        //     {relative(percentage(los, grouper(los)))}
-
-
-        //     {/* {help(los, props.data)} */}
-
-        //     {/* {props.data.map((anime) => (
-        //         anime.list_status.score
-        //     ))},
-        //     {props.data.map((anime) => (
-        //         anime.node.genres[0].name
-        //     ))} */}
+        //      {/* {props.data.map((anime) => (
+        //          anime.list_status.score
+        //      ))},
+        //      {props.data.map((anime) => (
+        //          anime.node.genres[0].name
+        //      ))} */}
 
         //  </ImageList>
+
+        
+        // // EVERYTHING ELSE COMMENTED OUT BELOW IS OLD CODE FROM EARLIER ITERATIONS
+
+        // // <ImageList variant="standard">     
+        // //     <Grouper data={props}/>
+           
+        // //     {los = props.data.map((anime) => (
+        // //         anime.list_status.score
+        // //     ))}
+        
+        // <ImageList variant="standard">     
+            
+        //     <Tagger ag={ag} r={r}/>
+          
+
+        // //     {/* {log = props.data.map((anime) => (
+        // //         anime.node.genres[0].name
+        // //     ))} */}
+
+
+        // //     {relative(percentage(los, grouper(los)))}
+
+
+        // //     {/* {help(los, props.data)} */}
+
+        // //     {/* {props.data.map((anime) => (
+        // //         anime.list_status.score
+        // //     ))},
+        // //     {props.data.map((anime) => (
+        // //         anime.node.genres[0].name
+        // //     ))} */}
+
+        // //  </ImageList>
     );
 };
 
