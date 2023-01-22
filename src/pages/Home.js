@@ -21,7 +21,7 @@ const Home = () => {
             search.setData(data.data);
             localStorage.setItem('myData', JSON.stringify(data.data));
             history.push('/results');
-            window.location.reload(false);
+            
            
         });
     };
