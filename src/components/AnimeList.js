@@ -1,10 +1,16 @@
 import React from 'react';
 
-const AnimeList = () => {
+import { ImageList } from '@mui/material';
+import InfoCard from './InfoCard';
+
+const AnimeList = (props) => {
     return (
-        <div>
-            Anime List
-        </div>
+        <ImageList>
+        {props.data.map((anime) => (
+           <InfoCard key={anime.mal_id} anime={anime}/> 
+           ))}
+
+         </ImageList>
     );
 };
 
