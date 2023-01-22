@@ -20,6 +20,7 @@ const Home = () => {
             console.log(data);
             search.setData(data.results);
             history.push('/results');
+            window.location.reload(false);
            
         });
     };
@@ -27,7 +28,7 @@ const Home = () => {
     return (
         <Grid container className="Home-container" direction="column" justify="center" alignContent="center" alignItems="center">
             <Grid item>
-                <Grid item>
+                <Grid item className="TextField">
                     Image: {input} and {output}
 
                 </Grid>
