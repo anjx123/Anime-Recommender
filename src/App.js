@@ -26,8 +26,11 @@ function App() {
 
   const search = (searchTerm) => {
     return fetch(
-      `https://api.jikan.moe/v4/anime?q=${searchTerm}&limit=20&order_by=start_date&sort=desc`
-    ).then((response) => response.json());
+      `https://api.myanimelist.net/v2/users/${searchTerm}/animelist?limit=20&status=completed&sort=list_score&fields=mean,synopsis`, {
+      method: 'GET',
+      headers: {'X-MAL-CLIENT-ID': 'fbff9778d6f0ac20c5a30f6af55f207e'}
+    })
+    .then((response) => response.json());
 
   };
  
@@ -59,5 +62,5 @@ function App() {
     </SearchContext.Provider>
   );
 }
-  
+
 export default App;
