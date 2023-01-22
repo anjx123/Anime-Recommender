@@ -1,10 +1,10 @@
 import React, { useContext, useEffect , useRef , useState } from 'react';
 import { SearchContext } from '../context/search';
-import TextField from '@mui/material/TextField';
 import './Home.css';
 
 const Home = () => {
     const search = useContext(SearchContext);
+
 
     const [inVal, setInVal] = useState(); // ideally, variable that holds the input value(s?)
 
@@ -12,22 +12,24 @@ const Home = () => {
 
     const [updated, setUpdated] = useState('');
 
+    const [input, setInput] = useState('');
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+    };
+
     const handleClick = () => {
         // 👇 "inputRef.current.value" is input value
         setUpdated(inputRef.current.value);
         setInVal(inputRef.current.value);
+        search.search(input).then((data) => {
+            console.log(data);
+            search.setData(data.results);
+           
+        });
     };
 
 
-
-
-
-    useEffect(() => {
-        search.search('Naruto').then((data) => {
-            console.log(data);
-        });
-
-    }, [search]);
 
     return (
         <div className="Home-container">
@@ -35,13 +37,15 @@ const Home = () => {
             Home
             <div className="TextField">
                 
-                <TextField id="outlined-basic" fullWidth label="Enter username..." variant="outlined"/>
+                
             </div>
 
             <div className="input-test">
-                
                 <input
                 ref={inputRef}
+                placeholder='Search for your profile...'
+                value={input}
+                onChange={(event) => setInput(event.target.value)}
                 type="text"
                 id="message"
                 name="input-value-for-search"
