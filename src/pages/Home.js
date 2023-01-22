@@ -30,40 +30,38 @@ const Home = () => {
 
     return (
         // <div className="Home-container">
-        <Grid container className="Home-container" direction="column" justify="center" alignContent="center" alignItems="center">
+        <Grid container className="Home-container" direction="column" justifyContent="center" alignContent="center" alignItems="center">
             
-            <Grid item>
+            <Grid item justifyContent="center" alignItems="center">
 
                 <Grid item className="TextField">
-                    Image: {input} and {output}
+                    Input: {input} | Output: {output}
+                </Grid>
 
+                <Grid item md={2}>
                 </Grid>
 
                 <Grid item>
                    <form className="home__form">
-                    
                     <FormControl type="submit">
                         <Input className="input-test" ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
                         <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
                             <Search/>
                         </IconButton>
                     </FormControl>
-
                    </form>
                 </Grid>
 
-                <Grid item>
+            </Grid>
 
+            <Grid item>
                     <h2>Username: {input}</h2>
 
                 
-                </Grid>
-
             </Grid>
-  
+
         </Grid>
-        // </div>
-    );
+        );
 };
 
 export default Home;
