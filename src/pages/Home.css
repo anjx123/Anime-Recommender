@@ -7,8 +7,9 @@
 .home__form-main {
     background-color: white;
     margin-top: 20%;
+    /* margin-bottom: 100%; */
     padding: 100px;
-    border-radius: 25px;
+    border-radius: 50px;
 }
 
 .form-items--main {

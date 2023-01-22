@@ -6,6 +6,8 @@ import './Home.css';
 import { FormControl, Input, IconButton, Grid, Icon } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
+import Paper from '@mui/material/Paper';
+
 
 const Home = () => {
     const search = useContext(SearchContext);
@@ -33,6 +35,7 @@ const Home = () => {
         <Grid container className="Home-container" direction="column" justifyContent="center" alignContent="center" alignItems="center">
             
             <Grid item>
+                {/* <Paper> */}
                 <form className="home__form-main">
                 <FormControl type="submit">
                     <div className="form-items--main">
@@ -50,6 +53,7 @@ const Home = () => {
                     </div>
                 </FormControl>
                 </form>
+                {/* </Paper> */}
             </Grid>
 
             {/* <Grid item>
