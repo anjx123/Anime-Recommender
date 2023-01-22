@@ -28,6 +28,8 @@ const Results = () => {
         console.log(search.profileData);
     }, [search]);
 
+    console.log(search.profileData)
+
     return (
         <div className="Box"> 
         {(dataExists && <AnimeList data={search.profileData} />) || <Typography variant="h2"> 'There are no search results' </Typography>}
