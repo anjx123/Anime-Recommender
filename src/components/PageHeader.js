@@ -46,7 +46,7 @@ function PageHeader(props) {
                     
                     <div className="header-image">
                         <Link to="/" variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
-                        <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="" height="30"/>
+                        <img src="https://cdn.discordapp.com/attachments/1054552772655202365/1066779247466774600/IMG_7912.png" alt="" height="50"/>
                         </Link> 
                     </div>
 

@@ -17,3 +17,9 @@
 .col-right {
 
 }
+
+.no-results {
+    font-family: Verdana, sans-serif;
+    margin-top: 5%;
+    font-size: 16px;
+}

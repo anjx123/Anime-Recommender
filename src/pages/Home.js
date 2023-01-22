@@ -39,6 +39,9 @@ const Home = () => {
                 <form className="home__form-main">
                 <FormControl type="submit">
                     <div className="form-items--main">
+
+                        <img src="https://cdn.discordapp.com/attachments/1054552772655202365/1066781026929623170/IMG_7913.png" height="100" alt=""/>
+                        
                         <div className="form-items--main-name">
                             <h2>ANIPROFINDER</h2>
                         </div>
