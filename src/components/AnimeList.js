@@ -3,41 +3,48 @@ import React from 'react';
 import { ImageList } from '@mui/material';
 import InfoCard from './InfoCard';
 import './AnimeList.css'
-import Grouper from './Grouper';
 import { Group } from '@mui/icons-material';
+import Tagger from './Tagger';
 
 var list1 = [];
 var los = "";
 var log = "";
+var info = [];
 
-
-// const AnimeList = (props) => {
-//     return (
-//         <ImageList>
-//         {props.data.map((anime) => (
-//            <InfoCard key={anime.node.id} data={props.data} anime={anime}/> 
-//            ))}
-//          </ImageList>
-//     );
-// };
 
 const AnimeList = (props) => {
+    {los = props.data.map((anime) => (
+        anime.list_status.score
+    ))}
+    const d = props.data;
+    const g = grouper(los);
+    const p = percentage(los, g);
+    const r = relative(p);
+    const ag = animGrouper(d);
+    
+
+
+
 
     
 
     return (
         <ImageList variant="standard">     
-            <Grouper data={props}/>
+            
+            <Tagger ag={ag} r={r}/>
            
-            {los = props.data.map((anime) => (
-                anime.list_status.score
-            ))}
+            
 
             {/* {log = props.data.map((anime) => (
                 anime.node.genres[0].name
             ))} */}
 
-            {relative(percentage(los, grouper(los)))}
+           
+        
+          
+
+            
+            
 
             {/* {help(los, props.data)} */}
 
@@ -76,6 +83,46 @@ function grouper(los) {
     return list2
 }
 
+function animGrouper(info) {
+
+    console.log(info)
+    let acc = [0, 0, ""]
+    // let acc be id,  rating, genre
+    let id = 0
+    let rating = 1
+    let genre = 2
+    let temp = []
+    let rsf = []
+
+    for (let i = 0; i < info.length; i++) {
+        if ( acc[rating] === info[i].list_status.score) {
+            temp = temp.concat([info[i]]);
+            acc = [acc[id], info[i].list_status.score, acc[genre]];
+            console.log(acc)
+            
+        } else {
+            rsf = rsf.concat([temp]);
+            temp = [info[i]];
+            
+            acc = [acc[id], info[i].list_status.score, acc[genre]];
+            console.log(acc +"adas")
+            
+        }   
+    }
+
+            rsf =  rsf.concat([temp]);
+            rsf.shift();
+            
+
+        //  console.log(props.data.data[1]);
+        //  console.log(rsf.push(2))
+        //  console.log(props.data.data[1].list_status.score)
+          
+        console.log(rsf);
+        return rsf
+
+}
+
 function percentage(los, list2) {
 
     console.log(list2.map((lambda) => (
@@ -95,8 +142,10 @@ function relative(list2) {
         list3[i] = list3[i - 1] + list2[i]
     }
 
-    console.log(list3)
+    console.log("ccehechhe")
     return list3
 }
+
+
 
 export default AnimeList;
