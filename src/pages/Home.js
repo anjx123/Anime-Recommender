@@ -19,7 +19,6 @@ const Home = () => {
         event.preventDefault();
         setOutput(inputRef.current.value)
         search.search(input).then((data) => {
-            console.log(data);
             search.setData(data.data);
             localStorage.setItem('myData', JSON.stringify(data.data));
             history.push('/results');
@@ -55,7 +54,6 @@ const Home = () => {
                 <Grid item>
 
                     <h2>Username: {input}</h2>
-
                 
                 </Grid>
 
