@@ -1,6 +1,7 @@
 .PageHeader-container {
-    background-color: #22567a;
-    padding: 10px;
+    /* background-color: #22567a; */
+    background-image: linear-gradient(#326990,#2b5f85);
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,13 +19,23 @@
 }
 
 .header-image {
-    padding: 0 20px 0 0;
+    padding-right: 12px;
+}
+
+.header-title {
+    padding-right: 10px;
 }
 
 .home-section {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.home-title {
+    font-size: 16px;
+    color: white;
+    font-family: Verdana, sans-serif;
 }
 
 .home-text {
