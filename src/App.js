@@ -12,12 +12,12 @@ import { SearchContext } from './context/search';
 
 
 function App() {
-  const [animeData, setAnimeData] = useState([]);
+  const [profileData, setProfileData] = useState([]);
   const [singleData, setSingleData] = useState({});
 
   
   const setData = (data) => {
-    setAnimeData(data);
+    setProfileData(data);
   };
 
   const setSingle = (data) => {
@@ -33,7 +33,7 @@ function App() {
  
   
   return (
-    <SearchContext.Provider value={{search, animeData, setData, singleData, setSingle }}>
+    <SearchContext.Provider value={{search, profileData, setData, singleData, setSingle }}>
 
       
 
