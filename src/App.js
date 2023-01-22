@@ -39,8 +39,6 @@ function App() {
   return (
     <SearchContext.Provider value={{search, profileData, setData, singleData, setSingle }}>
 
-      
-
       <Router>
       <PageHeader/>
 
