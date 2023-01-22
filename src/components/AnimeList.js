@@ -21,6 +21,9 @@ const AnimeList = (props) => {
     const p = percentage(los, g);
     const r = relative(p);
     const ag = animGrouper(d);
+
+    console.log(r + "aaa")
+    console.log(ag + "bbb")
     
 
 

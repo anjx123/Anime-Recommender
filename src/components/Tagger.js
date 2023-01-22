@@ -2,23 +2,40 @@ import React from 'react';
 
 const Tagger = (props) => {
     
+    console.log(props.ar);
+    console.log(props.r);
+    
+
+    
     return (
         <div>
-            {createTags(props.ag, props.r)}
+            {crTags(props.ag, props.r)}
         </div>
     );
 };
+function simpleList(lot) {
+    console.log(lot +"amog")
+    
+    let rsf =[];
+    for (let i = 0; i < lot.length; i++) {
+        rsf = rsf.concat(lot[i])
+    }
+    console.log(rsf + "crt")
+    return rsf
+}
 
 
-function createTags(lon, loa) {
+function crTags(lon, loa) {
     let rsf = [];
     console.log(lon + "cT");
     console.log(loa + "cT")
 
     for (let i = 0; i < lon.length; i++) {
+        console.log(rsf)
         rsf = rsf.concat(tagger(lon[i], loa[i]))
+        console.log(rsf)
     }
-    console.log("createTag check")
+    console.log(rsf)
     return rsf
 }
 
