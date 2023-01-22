@@ -3,6 +3,8 @@ import React from 'react';
 import { ImageList } from '@mui/material';
 import InfoCard from './InfoCard';
 import './AnimeList.css'
+import Grouper from './Grouper';
+import { Group } from '@mui/icons-material';
 
 var list1 = [];
 var los = "";
@@ -20,8 +22,15 @@ var log = "";
 // };
 
 const AnimeList = (props) => {
+
+    
+
     return (
-        <ImageList>
+        
+
+        <ImageList>       
+            <Grouper data={props}/>
+           
             {los = props.data.map((anime) => (
                 anime.list_status.score
             ))}
@@ -40,10 +49,10 @@ const AnimeList = (props) => {
             {props.data.map((anime) => (
                 anime.node.genres[0].name
             ))} */}
+
          </ImageList>
     );
 };
-
 
 function combiner(los, loa) {
     for (let i = 0; i<los.length; i++) {

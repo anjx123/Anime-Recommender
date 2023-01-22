@@ -41,7 +41,7 @@ function InfoCard(props) {
                     {synopsis}
                     {score}
                 </Typography>
-                <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
+                <Button variant="body2" style={{marginBottom: 0}} onClick={onClickHandler}>
                     Visit Website
                 </Button>
 

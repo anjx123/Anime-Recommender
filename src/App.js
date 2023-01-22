@@ -15,7 +15,7 @@ import PageHeader from './components/PageHeader';
 function App() {
   const [profileData, setProfileData] = useState([]);
   const [singleData, setSingleData] = useState({});
-  
+
   
   const setData = (data) => {
     setProfileData(data);
