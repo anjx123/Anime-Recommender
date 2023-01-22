@@ -2,6 +2,8 @@ import React, { useContext, useEffect , useRef , useState } from 'react';
 import { SearchContext } from '../context/search';
 import './Home.css';
 import { useHistory } from 'react-router-dom';
+import InfoCard from '../components/InfoCard';
+import { getByTitle } from '@testing-library/react';
 
 
 
@@ -32,12 +34,10 @@ const Home = () => {
         });
     };
 
-
-
     return (
         <div className="Home-container">
 
-            Home
+            <h1>Home</h1>
             <div className="TextField">
 
             </div>
@@ -60,6 +60,15 @@ const Home = () => {
                 {/*simply call {inVal} to access the input value (after the button has been pressed)*/}
                 <p>{inVal}</p>
 
+            </div>
+
+            <div className="card-test">
+                <InfoCard
+                    title="Anime 1"
+                    description="This is test anime #1"
+                    imgsrc="https://images.pexels.com/photos/1486974/pexels-photo-1486974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    imgalt="alt1"
+                />
             </div>
 
         </div>

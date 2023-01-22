@@ -1,0 +1,14 @@
+.InfoCard-container {
+    background-color: white;
+    width: 400px;
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.InfoCard-image {
+    max-width: 150px;
+    max-height: 300px;
+}
