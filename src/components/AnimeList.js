@@ -6,7 +6,7 @@ import './AnimeList.css'
 import Grouper from './Grouper';
 import { Group } from '@mui/icons-material';
 
-// import Tagger from './Tagger'; I DO NOT HAVE THIS LOCALLY
+import Tagger from './Tagger';
 
 var list1 = [];
 var los = "";
