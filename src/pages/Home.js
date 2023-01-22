@@ -24,10 +24,8 @@ const Home = () => {
         });
     };
 
-
-
     return (
-        <Grid container direction="column" justify="center" alignContent="center" alignItems="center">
+        <Grid container className="Home-container" direction="column" justify="center" alignContent="center" alignItems="center">
             <Grid item>
                 <Grid item>
                     Image: {input} and {output}
@@ -36,7 +34,7 @@ const Home = () => {
                 <Grid item>
                    <form className="home__form">
                     <FormControl type="submit">
-                        <Input ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
+                        <Input className="input-test" ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
                         <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
                             <Search/>
                         </IconButton>
