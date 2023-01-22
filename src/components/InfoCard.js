@@ -18,6 +18,8 @@ function InfoCard(props) {
     const imageUrl = props.anime.node.main_picture.large;
     var synopsis = props.anime.node.synopsis === null ? "": props.anime.node.synopsis;
         synopsis = synopsis.length > 50 ? `${synopsis.substring(0, 50)}...`: synopsis;
+    var score = props.anime.list_status.score
+
 
     return (
         <div className="InfoCard-container">
@@ -37,6 +39,7 @@ function InfoCard(props) {
 
                 <Typography variant="body2" component="h2" paragraph={true}>
                     {synopsis}
+                    {score}
                 </Typography>
                 <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
                     Visit Website
