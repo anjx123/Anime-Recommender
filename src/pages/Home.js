@@ -23,7 +23,7 @@ const Home = () => {
             search.setData(data.data);
             localStorage.setItem('myData', JSON.stringify(data.data));
             history.push('/results');
-            
+            window.location.reload(false);
            
         });
     };
@@ -56,24 +56,7 @@ const Home = () => {
 
                     <h2>Username: {input}</h2>
 
-                    <div className="InfoCards">
-
-                        <InfoCard
-                            title="Anime 1"
-                            description="This is test anime #1"
-                            imgsrc="https://images.pexels.com/photos/1486974/pexels-photo-1486974.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                            imgalt="alt1"
-                        />
-
-                        <InfoCard
-                            title="Anime 2"
-                            description="This is test anime #2"
-                            imgsrc="https://m.media-amazon.com/images/M/MV5BZjE0YjVjODQtZGY2NS00MDcyLThhMDAtZGQwMTZiOWNmNjRiXkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg"
-                            imgalt="alt2"
-                        />
-
-                    </div>
-
+                
                 </Grid>
 
             </Grid>

@@ -26,7 +26,7 @@ function App() {
 
   const search = (searchTerm) => {
     return fetch(
-      `https://api.jikan.moe/v4/anime?q=${searchTerm}&limit=20`
+      `https://api.jikan.moe/v4/anime?q=${searchTerm}&limit=20&order_by=start_date&sort=desc`
     ).then((response) => response.json());
 
   };
