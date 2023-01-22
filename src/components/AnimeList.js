@@ -26,29 +26,33 @@ const AnimeList = (props) => {
     
 
     return (
-        <ImageList variant="standard">     
-            <Grouper data={props}/>
+        <ImageList>
+            {props.data.map((anime) => (<InfoCard key={anime.node.id} anime={anime}/>))}
+        </ImageList>
+        
+        // <ImageList variant="standard">     
+        //     <Grouper data={props}/>
            
-            {los = props.data.map((anime) => (
-                anime.list_status.score
-            ))}
+        //     {los = props.data.map((anime) => (
+        //         anime.list_status.score
+        //     ))}
 
-            {/* {log = props.data.map((anime) => (
-                anime.node.genres[0].name
-            ))} */}
+        //     {/* {log = props.data.map((anime) => (
+        //         anime.node.genres[0].name
+        //     ))} */}
 
-            {relative(percentage(los, grouper(los)))}
+        //     {relative(percentage(los, grouper(los)))}
 
-            {/* {help(los, props.data)} */}
+        //     {/* {help(los, props.data)} */}
 
-            {/* {props.data.map((anime) => (
-                anime.list_status.score
-            ))},
-            {props.data.map((anime) => (
-                anime.node.genres[0].name
-            ))} */}
+        //     {/* {props.data.map((anime) => (
+        //         anime.list_status.score
+        //     ))},
+        //     {props.data.map((anime) => (
+        //         anime.node.genres[0].name
+        //     ))} */}
 
-         </ImageList>
+        //  </ImageList>
     );
 };
 
