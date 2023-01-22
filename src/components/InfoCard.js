@@ -10,15 +10,18 @@ function InfoCard(props) {
     const id = props.anime.node.id
     const onClickHandler = () => {
         window.open("https://myanimelist.net/anime/".concat(id))
-
     }
+
+    
     var title = props.anime.node.title === null ? "": props.anime.node.title;
-    title = title.length > 20 ? `${title.substring(0, 20)}...`: title;
+        title = title.length > 20 ? `${title.substring(0, 20)}...`: title;
     const imageUrl = props.anime.node.main_picture.large;
     var synopsis = props.anime.node.synopsis === null ? "": props.anime.node.synopsis;
     synopsis = synopsis.length > 120 ? `${synopsis.substring(0, 120)}...`: synopsis;
 
     // !!! wishlist for the ranking of the recommendations
+    
+    var score = props.anime.list_status.score
 
     return (
         <div className="InfoCard-container">
@@ -34,7 +37,6 @@ function InfoCard(props) {
                             {title} 
                         </h2> 
                     </div>
-
                     
                     <img 
                         src={imageUrl} 
