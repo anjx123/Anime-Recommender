@@ -2,6 +2,9 @@ import React, { useContext, useEffect , useRef , useState } from 'react';
 import { SearchContext } from '../context/search';
 import TextField from '@mui/material/TextField';
 import './Home.css';
+import { useHistory } from 'react-router-dom';
+
+
 
 const Home = () => {
     const search = useContext(SearchContext);
@@ -18,10 +21,6 @@ const Home = () => {
         setInVal(inputRef.current.value);
     };
 
-
-
-
-
     useEffect(() => {
         search.search('Naruto').then((data) => {
             console.log(data);
@@ -34,23 +33,23 @@ const Home = () => {
 
             Home
             <div className="TextField">
-                
-                <TextField id="outlined-basic" fullWidth label="Enter username..." variant="outlined"/>
+            
             </div>
 
             <div className="input-test">
                 
                 <input
-                ref={inputRef}
-                type="text"
-                id="message"
-                name="input-value-for-search"
+                    ref={inputRef}
+                    type="text"
+                    id="message"
+                    name="input-value-for-search"
                 />
 
-                <h2>Updated: {updated}</h2>
+                <h2>Username: {updated}</h2>
 
                 <button onClick={handleClick}>ENTER</button>
                 
+                {/*simply call {inVal} to access the input value (after the button has been pressed)*/}
                 <p>{inVal}</p>
 
             </div>
