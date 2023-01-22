@@ -7,9 +7,10 @@ import Paper from '@mui/material/Paper';
 import { maxHeight } from '@mui/system';
 
 function InfoCard(props) {
-    const title = props.anime.title;
-    const imageUrl = props.anime.images.jpg.image_url;
-    const synopsis = props.anime.synopsis.length > 50 ? `${props.anime.synopsis.substring(0, 50)}...`: props.anime.synopsis;
+    const title = props.anime.node.title;
+    const imageUrl = props.anime.node.main_picture.large;
+    var synopsis = props.anime.node.synopsis === null ? "": props.anime.node.synopsis;
+    synopsis = synopsis.length > 50 ? `${synopsis.substring(0, 50)}...`: synopsis;
 
     return (
         <div className="InfoCard-container">
