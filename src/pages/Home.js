@@ -1,6 +1,9 @@
 import React, { useContext, useEffect , useRef , useState } from 'react';
 import { SearchContext } from '../context/search';
 import './Home.css';
+import { useHistory } from 'react-router-dom';
+
+
 
 const Home = () => {
     const search = useContext(SearchContext);
@@ -36,8 +39,7 @@ const Home = () => {
 
             Home
             <div className="TextField">
-                
-                
+
             </div>
 
             <div className="input-test">
@@ -51,10 +53,11 @@ const Home = () => {
                 name="input-value-for-search"
                 />
 
-                <h2>Updated: {updated}</h2>
+                <h2>Username: {updated}</h2>
 
                 <button onClick={handleClick}>ENTER</button>
                 
+                {/*simply call {inVal} to access the input value (after the button has been pressed)*/}
                 <p>{inVal}</p>
 
             </div>
