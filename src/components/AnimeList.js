@@ -11,9 +11,11 @@ var list1 = [];
 var los = "";
 var log = "";
 var info = [];
+var rankings = "";
 
 
 const AnimeList = (props) => {
+    getRanking();
     {los = props.data.map((anime) => (
         anime.list_status.score
     ))}
@@ -22,9 +24,14 @@ const AnimeList = (props) => {
     const p = percentage(los, g);
     const r = relative(p);
     const ag = animGrouper(d);
+    var fa = [];
 
     console.log(r + "aaa")
     console.log(ag + "bbb")
+
+    const handleSearch = (event) => {
+       fa = findAnime(simplifyList(simpleList(crTags(r, ag))), rankings).sort(([a, b], [c, d]) => c - a || b - d);
+    }
     
 
 
@@ -46,6 +53,15 @@ const AnimeList = (props) => {
     
 
     return (
+
+        <ImageList variant="standard">     
+            
+        
+           
+           <button onClick={handleSearch}>
+            test
+           </button>
+
         // THE 3 LINES OF CODE BELOW ALLOW FOR BASIC FUNCTIONALITY OF CREATING A LIST OF ANIME ON A PERSON'S PROFILE
         <ImageList>
             {props.data.map((anime) => (<InfoCard key={anime.node.id} anime={anime}/>))}
@@ -60,7 +76,6 @@ const AnimeList = (props) => {
         //          anime.node.genres[0].name
         //      ))} */}
 
-        //      {/* {help(los, props.data)} */}
 
         //      {/* {props.data.map((anime) => (
         //          anime.list_status.score
@@ -94,7 +109,6 @@ const AnimeList = (props) => {
         // //     {relative(percentage(los, grouper(los)))}
 
 
-        // //     {/* {help(los, props.data)} */}
 
         // //     {/* {props.data.map((anime) => (
         // //         anime.list_status.score
@@ -107,10 +121,83 @@ const AnimeList = (props) => {
     );
 };
 
-function combiner(los, loa) {
-    for (let i = 0; i<los.length; i++) {
-        list1[i] = [los[i], loa[i]]
+
+function findAnime(lot, rec) {
+    let rsf =[];
+    console.log(rec);
+    for (let i = 0; i < rec.data.length; i++) {
+        rsf = rsf.concat([setScore(rec.data[i], lot)]);
     }
+    console.log(rsf)
+    return rsf
+}
+
+function setScore(anime, lot) {
+    let rsf = [0, anime]
+
+    for (let i = 0; i < anime.node.genres.length; i++) {
+        
+        rsf = [tagScoring(anime.node.genres[i].id, lot) + rsf[0], anime]
+        
+    }
+    
+    return rsf
+}
+
+function tagScoring(id, lot) {
+    
+    for (let i = 0; i < lot.length; i++) {
+        if (id === lot[i][0].id) {
+            return lot[i][1]
+        }
+    }
+    return 0;
+}
+
+
+function simpleList(lot) {
+      
+    let rsf =[];
+    for (let i = 0; i < lot.length; i++) {
+   
+        rsf = rsf.concat(lot[i])
+    }
+    
+    return rsf
+}
+
+function simplifyList(lot) {
+    let rsf =[];
+    for (let i = 0; i < lot.length; i++) {
+       
+        if (rsf.map((n) => (n[0].id)).includes(lot[i][0].id)) {
+            console.log(rsf + "before")
+            rsf = adder(lot[i], rsf)
+           
+            
+        } else {
+            rsf = rsf.concat([lot[i]])
+        }
+    }
+    console.log(rsf)
+    return rsf
+}
+
+function adder(t, lot) {
+    let rsf=[];
+    for (let i = 0; i < lot.length; i++) {
+        if (t[0].id === lot[i][0].id) {
+            lot.shift()
+        
+            
+        rsf = rsf.concat([[lot[i][0], t[1] + lot[i][1] ]]);
+        
+        } else {
+            rsf = rsf.concat([lot[i]])
+        }
+    }
+    console.log(rsf)
+    return rsf;
 }
 
 function grouper(los) {
@@ -153,7 +240,7 @@ function animGrouper(info) {
             temp = [info[i]];
             
             acc = [acc[id], info[i].list_status.score, acc[genre]];
-            console.log(acc +"adas")
+            console.log(acc)
             
         }   
     }
@@ -195,6 +282,51 @@ function relative(list2) {
     return list3
 }
 
+function crTags(lon, loa) {
+    var rsf = [];
+    console.log(lon);
+    console.log(loa);
+
+    for (let i = 0; i < loa.length; i++) {
+        console.log(lon[i]);
+        console.log(loa[i]);
+        rsf = rsf.concat( tagger(lon[i], loa[i]) );
+        console.log(rsf);
+    };
+    console.log(rsf);
+    return rsf;
+};
+
+function tagger(n, loa) {
+    let acc = [];
+
+    for (let i = 0; i < loa.length; i++) {
+        console.log(loa[i])
+        acc = acc.concat([ craftTag(n, loa[i].node.genres, loa[i].list_status.score)]);
+    }
+    console.log("tagger check");
+    return acc;
+};
+
+function craftTag(n, log, s) {
+    let ddd = [];
+
+    for (let i = 0; i < log.length; i++) {
+        ddd = ddd.concat([ [log[i], s / n] ]);
+        console.log("craftTag check");
+    }
+    return ddd;
+};
+
+function getRanking() {
+    return fetch(
+        `https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=50&fields=genres,synopsis,`, {
+        method: 'GET',
+        headers: {'X-MAL-CLIENT-ID': 'fbff9778d6f0ac20c5a30f6af55f207e'}
+      })
+      .then((response) => response.json())
+      .then((data) => rankings = data);
+}
 
 
 export default AnimeList;
