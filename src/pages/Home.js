@@ -1,30 +1,25 @@
 import React, { useContext, useEffect , useRef , useState } from 'react';
 import { SearchContext } from '../context/search';
+import { useHistory } from 'react-router-dom';
 import './Home.css';
+import { FormControl, Input, IconButton, Grid, Icon } from '@mui/material';
+import { Search } from '@mui/icons-material';
 
 const Home = () => {
     const search = useContext(SearchContext);
-
-
-    const [inVal, setInVal] = useState(); // ideally, variable that holds the input value(s?)
-
+    const history = useHistory();
+    const [input, setInput] = useState('');
+    const [output, setOutput] = useState('');
     const inputRef = useRef(null);
 
-    const [updated, setUpdated] = useState('');
-
-    const [input, setInput] = useState('');
 
     const handleSearch = (event) => {
         event.preventDefault();
-    };
-
-    const handleClick = () => {
-        // 👇 "inputRef.current.value" is input value
-        setUpdated(inputRef.current.value);
-        setInVal(inputRef.current.value);
+        setOutput(inputRef.current.value)
         search.search(input).then((data) => {
             console.log(data);
             search.setData(data.results);
+            history.push('/results');
            
         });
     };
@@ -32,34 +27,28 @@ const Home = () => {
 
 
     return (
-        <div className="Home-container">
+        <Grid container direction="column" justify="center" alignContent="center" alignItems="center">
+            <Grid item>
+                <Grid item>
+                    Image: {input} and {output}
 
-            Home
-            <div className="TextField">
-                
-                
-            </div>
+                </Grid>
+                <Grid item>
+                   <form className="home__form">
+                    <FormControl type="submit">
+                        <Input ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
+                        <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
+                            <Search/>
+                        </IconButton>
+                    </FormControl>
 
-            <div className="input-test">
-                <input
-                ref={inputRef}
-                placeholder='Search for your profile...'
-                value={input}
-                onChange={(event) => setInput(event.target.value)}
-                type="text"
-                id="message"
-                name="input-value-for-search"
-                />
 
-                <h2>Updated: {updated}</h2>
+                   </form>
 
-                <button onClick={handleClick}>ENTER</button>
-                
-                <p>{inVal}</p>
-
-            </div>
-
-        </div>
+                </Grid>
+            </Grid>
+  
+        </Grid>
     );
 };
 
