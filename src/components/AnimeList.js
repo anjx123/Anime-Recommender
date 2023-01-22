@@ -26,9 +26,7 @@ const AnimeList = (props) => {
     
 
     return (
-        
-
-        <ImageList>       
+        <ImageList variant="standard">     
             <Grouper data={props}/>
            
             {los = props.data.map((anime) => (

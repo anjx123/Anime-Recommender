@@ -51,7 +51,7 @@ function PageHeader(props) {
                     </div>
 
                     <Typography cvariant='h6' noWrap>
-                        <Link to="/" variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
+                        <Link to="/" variant="body1" style={{marginBottom: 0}, {textDecoration: "none"}} onClick={onClickHandler}>
                         <div className="home-text">HOME</div> 
                         </Link> 
                     </Typography> 
@@ -62,7 +62,7 @@ function PageHeader(props) {
                     <form className="home__form-header">
                         <FormControl type="submit">
                             <div className="form-items--header">
-                                <Input className="input-test" ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
+                                <Input className="input-test" style={{color: 'white'}} ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
                                 <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
                                     <Search/>
                                 </IconButton>
