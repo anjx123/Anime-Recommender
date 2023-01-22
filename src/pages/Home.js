@@ -18,7 +18,8 @@ const Home = () => {
         setOutput(inputRef.current.value)
         search.search(input).then((data) => {
             console.log(data);
-            search.setData(data.results);
+            search.setData(data.data);
+            localStorage.setItem('myData', JSON.stringify(data.data));
             history.push('/results');
             window.location.reload(false);
            
@@ -30,7 +31,6 @@ const Home = () => {
             <Grid item>
                 <Grid item className="TextField">
                     Image: {input} and {output}
-
                 </Grid>
                 <Grid item>
                    <form className="home__form">
