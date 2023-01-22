@@ -58,12 +58,10 @@ const Home = () => {
                     <h2>Username: {input}</h2>
 
                 
-                </Grid>
-
             </Grid>
+
         </Grid>
-        // </div>
-    );
+        );
 };
 
 export default Home;
