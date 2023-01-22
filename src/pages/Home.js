@@ -40,7 +40,7 @@ const Home = () => {
                 <FormControl type="submit">
                     <div className="form-items--main">
                         <div className="form-items--main-name">
-                            <h2>ANIME RECOMMENDER</h2>
+                            <h2>ANIPROFINDER</h2>
                         </div>
                         
                         <div className="form-items--main-search">

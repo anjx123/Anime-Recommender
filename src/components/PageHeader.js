@@ -52,13 +52,13 @@ function PageHeader(props) {
 
                     <Typography className="header-title" cvariant='h6' noWrap>
                         <Link to="/" variant="body1" style={{marginBottom: 0}, {textDecoration: "none"}} onClick={onClickHandler}>
-                            <div className="home-title">PROJECTNAME</div>  
+                            <div className="home-title">ANIPROFINDER</div>  
                         </Link> 
                     </Typography>
 
                     <Typography cvariant='h6' noWrap>
                         <Link to="/" variant="body1" style={{marginBottom: 0}, {textDecoration: "none"}} onClick={onClickHandler}>
-                            <div className="home-text">Home</div> 
+                            <div className="home-text">home</div> 
                         </Link> 
                     </Typography>
                                 
