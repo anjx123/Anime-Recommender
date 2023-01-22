@@ -15,7 +15,7 @@ import PageHeader from './components/PageHeader';
 function App() {
   const [profileData, setProfileData] = useState([]);
   const [singleData, setSingleData] = useState({});
-
+  
   
   const setData = (data) => {
     setProfileData(data);
@@ -39,9 +39,10 @@ function App() {
   return (
     <SearchContext.Provider value={{search, profileData, setData, singleData, setSingle }}>
 
-      <PageHeader/>
+      
 
       <Router>
+      <PageHeader/>
 
         <main>
           <Switch>

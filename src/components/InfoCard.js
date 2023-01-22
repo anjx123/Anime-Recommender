@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import "./InfoCard.css"
 import { SearchContext } from '../context/search';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import { maxHeight } from '@mui/system';
@@ -37,9 +37,9 @@ function InfoCard(props) {
                 <Typography variant="body2" component="h2" paragraph={true}>
                     {synopsis}
                 </Typography>
-                <Link component="button" variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
+                <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
                     Visit Website
-                </Link>
+                </Button>
 
                 </Paper> 
 
