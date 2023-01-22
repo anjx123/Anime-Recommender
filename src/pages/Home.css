@@ -2,20 +2,13 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    
 }
 
-/* .TextField {
+.TextField {
+    background-color: white;
+    fill: white;
     display: flex;
-    flex-direction: row;
-} */
-
-h1 {
-    color: brown;
-}
-
-.InfoCards {
-    background-color: brown;
-    padding: 0;
-    display: flex;
+    flex-direction: column;
+    width: 700px;
+    justify-content: center;
 }
