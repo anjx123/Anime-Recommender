@@ -6,9 +6,12 @@ import './AnimeList.css'
 import Grouper from './Grouper';
 import { Group } from '@mui/icons-material';
 
+// import Tagger from './Tagger'; I DO NOT HAVE THIS LOCALLY
+
 var list1 = [];
 var los = "";
 var log = "";
+var info = [];
 
 
 // const AnimeList = (props) => {
@@ -23,13 +26,50 @@ var log = "";
 
 const AnimeList = (props) => {
 
+    // artificially added in from master branch 10:32am
+    // {los = props.data.map((anime) => (
+    //     anime.list_status.score
+    // ))}
+    // const d = props.data;
+    // const g = grouper(los);
+    // const p = percentage(los, g);
+    // const r = relative(p);
+    // const ag = animGrouper(d);
+
+    // console.log(r + "aaa")
+    // console.log(ag + "bbb")
+    
     
 
     return (
+        // THE 3 LINES OF CODE BELOW ALLOW FOR BASIC FUNCTIONALITY OF CREATING A LIST OF ANIME ON A PERSON'S PROFILE
         <ImageList>
             {props.data.map((anime) => (<InfoCard key={anime.node.id} anime={anime}/>))}
         </ImageList>
+
+        // // FOLLOWING CODE BLOCK IS ARTICIALLY MERGED. 10:33am 
+        // <ImageList variant="standard">     
+            
+        //     <Tagger ag={ag} r={r}/>
+
+        //     {/* {log = props.data.map((anime) => (
+        //         anime.node.genres[0].name
+        //     ))} */}
+
+        //     {/* {help(los, props.data)} */}
+
+        //     {/* {props.data.map((anime) => (
+        //         anime.list_status.score
+        //     ))},
+        //     {props.data.map((anime) => (
+        //         anime.node.genres[0].name
+        //     ))} */}
+
+        // </ImageList>
+
         
+        // EVERYTHING ELSE COMMENTED OUT BELOW IS OLD CODE FROM EARLIER ITERATIONS
+
         // <ImageList variant="standard">     
         //     <Grouper data={props}/>
            
@@ -80,6 +120,46 @@ function grouper(los) {
     return list2
 }
 
+function animGrouper(info) {
+
+    console.log(info)
+    let acc = [0, 0, ""]
+    // let acc be id,  rating, genre
+    let id = 0
+    let rating = 1
+    let genre = 2
+    let temp = []
+    let rsf = []
+
+    for (let i = 0; i < info.length; i++) {
+        if ( acc[rating] === info[i].list_status.score) {
+            temp = temp.concat([info[i]]);
+            acc = [acc[id], info[i].list_status.score, acc[genre]];
+            console.log(acc)
+            
+        } else {
+            rsf = rsf.concat([temp]);
+            temp = [info[i]];
+            
+            acc = [acc[id], info[i].list_status.score, acc[genre]];
+            console.log(acc +"adas")
+            
+        }   
+    }
+
+            rsf =  rsf.concat([temp]);
+            rsf.shift();
+            
+
+        //  console.log(props.data.data[1]);
+        //  console.log(rsf.push(2))
+        //  console.log(props.data.data[1].list_status.score)
+          
+        console.log(rsf);
+        return rsf
+
+}
+
 function percentage(los, list2) {
 
     console.log(list2.map((lambda) => (
@@ -99,7 +179,7 @@ function relative(list2) {
         list3[i] = list3[i - 1] + list2[i]
     }
 
-    console.log(list3)
+    console.log("ccehechhe") //UPDATED THIS CONSOLE LOG FROM OUTPUTTING list3 to "ccehechhe" IN ACCORDANCE WITH MASTER BRANCH 10:36AM
     return list3
 }
 

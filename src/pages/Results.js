@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import AnimeList from '../components/AnimeList';
 import { SearchContext } from '../context/search';
-import { Box } from '@mui/system';
 import { Typography } from '@mui/material';
 import './Results.css'
 
