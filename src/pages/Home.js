@@ -14,7 +14,6 @@ const Home = () => {
     const [output, setOutput] = useState('');
     const inputRef = useRef(null);
 
-
     const handleSearch = (event) => {
         event.preventDefault();
         setOutput(inputRef.current.value)
@@ -28,29 +27,38 @@ const Home = () => {
         });
     };
 
+    
     return (
         // <div className="Home-container">
         <Grid container className="Home-container" direction="column" justifyContent="center" alignContent="center" alignItems="center">
             
             <Grid item justifyContent="center" alignItems="center">
 
-
                 <Grid item>
-                   <form className="home__form">
+                   <form className="home__form-main">
                     <FormControl type="submit">
-                        <Input className="input-test" ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
-                        <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
-                            <Search/>
-                        </IconButton>
+                        <div className="form-items--main">
+                            <div className="form-items--main-name">
+                                <h2>ANIME RECOMMENDER</h2>
+                            </div>
+                            
+                            <div className="form-items--main-search">
+                                <Input className="input-test" ref={inputRef} placeholder="Search for your profile..." value={input} onChange={(event) => setInput(event.target.value)}/>
+                                <IconButton variants="contained" color="primary" type="submit" disabled={!input} onClick={handleSearch}>
+                                    <Search/>
+                                </IconButton>
+                            </div>
+                            
+                        </div>
                     </FormControl>
                    </form>
                 </Grid>
 
             </Grid>
 
-            <Grid item>
+            {/* <Grid item>
                     <h2>Username: {input}</h2>                
-            </Grid>
+            </Grid> */}
 
         </Grid>
         );

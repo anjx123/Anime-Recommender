@@ -4,11 +4,26 @@
     flex-direction: column;
 }
 
-.TextField {
+.home__form-main {
     background-color: white;
-    fill: white;
-    display: flex;
+    margin-top: 20%;
+    padding: 100px;
+}
+
+.form-items--main {
+    display: flex;  
     flex-direction: column;
-    width: 700px;
-    justify-content: center;
+    align-items: center;
+}
+
+.form-items--main-name {
+    padding: 10px;
+    margin-bottom: 25px;
+    font-size: large;
+}
+
+.form-items--main-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }

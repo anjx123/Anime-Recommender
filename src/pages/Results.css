@@ -1,5 +1,19 @@
-.Box {
+.Results-container {
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.Results-columns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.col-left {
+    
+}
+
+.col-right {
+
 }

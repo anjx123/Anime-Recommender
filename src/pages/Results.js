@@ -29,8 +29,30 @@ const Results = () => {
     }, [search]);
 
     return (
-        <div className="Box"> 
-        {(dataExists && <AnimeList data={search.profileData} />) || <Typography variant="h2"> 'There are no search results' </Typography>}
+        <div className="Results-container"> 
+
+            <div className="Results-columns">
+
+                <div className="col-left">
+                    {/* <div id="col-left-sticky">
+                        <div class="sticky-sidebar">
+                            <h2>Top 10 Recommended Anime</h2>
+                            <ol>
+                                <li><a href="#tag" class="to-top">Acceptable Use</a></li>
+                            </ol>
+                            <p><a href="#top" class="to-top">To Top</a></p>
+                        </div>
+                    </div> */}
+                </div>
+
+                <div className="col-right">
+                    {(dataExists && <AnimeList data={search.profileData} />) || <Typography variant="h2"> 'There are no search results' </Typography>}
+                </div>
+            </div>
+
+
+
+            
         </div>
     );
 };

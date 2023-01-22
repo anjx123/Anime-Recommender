@@ -7,13 +7,39 @@
     max-height: fit-content;
 }
 
-.header-text {
+.header {
+    min-width: 90%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 0 20px 0 20px;
+    justify-content: space-between;
+    margin: 0;
 }
 
 .header-image {
-    padding: 10px;
+    padding: 0 20px 0 0;
+}
+
+.home-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.home-text {
+    font-size: 16px
+}
+
+.search-section {
+    display: flex;
+}
+
+.home__form-header {
+    background-color: transparent;
+}
+
+.form-items--header {
+    display: flex;  
+    flex-direction: row;
+    align-items: center;
 }
