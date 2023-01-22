@@ -6,6 +6,8 @@ import './AnimeList.css'
 import { Group } from '@mui/icons-material';
 import Button from '@mui/material';
 
+import Tagger from './Tagger';
+
 var list1 = [];
 var los = "";
 var log = "";
@@ -36,9 +38,23 @@ const AnimeList = (props) => {
 
 
 
+    // artificially added in from master branch 10:32am
+    // {los = props.data.map((anime) => (
+    //     anime.list_status.score
+    // ))}
+    // const d = props.data;
+    // const g = grouper(los);
+    // const p = percentage(los, g);
+    // const r = relative(p);
+    // const ag = animGrouper(d);
+
+    // console.log(r + "aaa")
+    // console.log(ag + "bbb")
+    
     
 
     return (
+
         <ImageList variant="standard">     
             
         
@@ -46,15 +62,73 @@ const AnimeList = (props) => {
            <button onClick={handleSearch}>
             test
            </button>
+
+        // THE 3 LINES OF CODE BELOW ALLOW FOR BASIC FUNCTIONALITY OF CREATING A LIST OF ANIME ON A PERSON'S PROFILE
+        <ImageList>
+            {props.data.map((anime) => (<InfoCard key={anime.node.id} anime={anime}/>))}
+        </ImageList>
+
+        // // FOLLOWING CODE BLOCK IS ARTICIALLY MERGED. 10:33am 
+         <ImageList variant="standard">     
+
             
+             <Tagger ag={ag} r={r}/>
+
+             {/* {log = props.data.map((anime) => (
+                 anime.node.genres[0].name
+             ))} */}
+
 
            {fa.map((anime) => (
 
            <InfoCard key={anime[1].node.id} data={fa} anime={anime}/> 
 
-           ))}
+
+             {/* {help(los, props.data)} */}
+
+             {/* {props.data.map((anime) => (
+                 anime.list_status.score
+             ))},
+             {props.data.map((anime) => (
+                 anime.node.genres[0].name
+             ))} */}
 
          </ImageList>
+
+        
+        // EVERYTHING ELSE COMMENTED OUT BELOW IS OLD CODE FROM EARLIER ITERATIONS
+
+        // <ImageList variant="standard">     
+        //     <Grouper data={props}/>
+           
+        //     {los = props.data.map((anime) => (
+        //         anime.list_status.score
+        //     ))}
+        
+        <ImageList variant="standard">     
+            
+            <Tagger ag={ag} r={r}/>
+          
+
+        //     {/* {log = props.data.map((anime) => (
+        //         anime.node.genres[0].name
+        //     ))} */}
+
+
+        //     {relative(percentage(los, grouper(los)))}
+
+
+
+        //     {/* {help(los, props.data)} */}
+
+        //     {/* {props.data.map((anime) => (
+        //         anime.list_status.score
+        //     ))},
+        //     {props.data.map((anime) => (
+        //         anime.node.genres[0].name
+        //     ))} */}
+
+        //  </ImageList>
     );
 };
 
@@ -214,7 +288,8 @@ function relative(list2) {
         list3[i] = list3[i - 1] + list2[i]
     }
 
-    console.log("ccehechhe")
+    console.log("ccehechhe") //UPDATED THIS CONSOLE LOG FROM OUTPUTTING list3 to "ccehechhe" IN ACCORDANCE WITH MASTER BRANCH 10:36AM
+
     return list3
 }
 
