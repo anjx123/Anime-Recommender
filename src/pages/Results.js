@@ -46,7 +46,7 @@ const Results = () => {
                 </div>
 
                 <div className="col-right">
-                    {(dataExists && <AnimeList data={search.profileData} />) || <Typography variant="h2"> 'There are no search results' </Typography>}
+                    {(dataExists && <AnimeList data={search.profileData} />) || <div className="no-results"> There are no search results for that username. Please try again. </div>}
                 </div>
             </div>
 
