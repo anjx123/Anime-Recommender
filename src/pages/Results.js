@@ -1,5 +1,8 @@
 import React, { useEffect, useContext, useState } from 'react';
+import AnimeList from '../components/AnimeList';
 import { SearchContext } from '../context/search';
+import { Box } from '@mui/system';
+import { Typography } from '@mui/material';
 
 const Results = () => {
     const search = useContext(SearchContext);
@@ -25,9 +28,10 @@ const Results = () => {
     }, [search]);
 
     return (
-        <div>
-            {(dataExists && 'Data Exists') || 'There are no search results'};
-        </div>
+        <Box mt={2}> 
+            {(dataExists && <AnimeList data={search.profileData} />) || <Typography variant="h2"> 'There are no search results' </Typography>}
+        </Box>
+        
     );
 };
 
