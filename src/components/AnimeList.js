@@ -18,7 +18,7 @@ const AnimeList = (props) => {
     const [currentRec, setCurrentRec]=useState([]);
     const [clear, setClear]= useState(false);
 
-    const recAmount = 50;
+    const recAmount = 20;
     
 
     getRanking();
@@ -51,17 +51,14 @@ const AnimeList = (props) => {
 
     return (
 
-        <ImageList variant="standard">     
+        <ImageList cols={4} >     
             
-
            <button onClick={handleSearch} variant="h1">
 
             <Typography>
                 Recommendations
             </Typography>
            </button>
-
-  
 
             {currentRec.map((anime) => {
                 console.log("in Currect rec");

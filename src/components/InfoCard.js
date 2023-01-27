@@ -28,7 +28,7 @@ function InfoCard(props) {
     return (
         <div className="InfoCard-container">
             
-            <Paper className="animeCard__paper">
+            <Paper className="animeCard__paper"> {/* height of paper is not aligning properly */}
  
             <div className="InfoCard-set">
 
