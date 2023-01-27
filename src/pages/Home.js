@@ -6,6 +6,8 @@ import './Home.css';
 import { FormControl, Input, IconButton, Grid, Icon } from '@mui/material';
 import { Search } from '@mui/icons-material';
 
+import Paper from '@mui/material/Paper';
+
 
 const Home = () => {
     const search = useContext(SearchContext);
@@ -33,11 +35,15 @@ const Home = () => {
         <Grid container className="Home-container" direction="column" justifyContent="center" alignContent="center" alignItems="center">
             
             <Grid item>
+                {/* <Paper> */}
                 <form className="home__form-main">
                 <FormControl type="submit">
                     <div className="form-items--main">
+
+                        <img src="https://cdn.discordapp.com/attachments/1054552772655202365/1066781026929623170/IMG_7913.png" height="100" alt=""/>
+                        
                         <div className="form-items--main-name">
-                            <h2>ANIME RECOMMENDER</h2>
+                            <h2>ANIPROFINDER</h2>
                         </div>
                         
                         <div className="form-items--main-search">
@@ -50,6 +56,7 @@ const Home = () => {
                     </div>
                 </FormControl>
                 </form>
+                {/* </Paper> */}
             </Grid>
 
             {/* <Grid item>

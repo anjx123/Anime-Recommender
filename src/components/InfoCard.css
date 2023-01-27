@@ -58,8 +58,6 @@
     opacity: 0.8;
 }
 
-.image-and-desc {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.MALbutton:hover {
+    background-color: #678fac;
 }

@@ -58,9 +58,12 @@ function InfoCard(props) {
                     </Typography>
                     </div>
                     
-                    <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
-                        Visit MyAnimeList Website Entry
-                    </Button>
+
+                    <div className="MALbutton">
+                        <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
+                            Visit MyAnimeList Website Entry
+                        </Button>
+                    </div>
 
                 
             </div>

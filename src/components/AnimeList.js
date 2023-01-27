@@ -4,7 +4,8 @@ import { ImageList, Typography } from '@mui/material';
 import InfoCard from './InfoCard';
 import './AnimeList.css'
 import { Group } from '@mui/icons-material';
-import Button from '@mui/material';
+
+import Tagger from './Tagger';
 
 var list1 = [];
 var los = "";
@@ -59,9 +60,23 @@ const AnimeList = (props) => {
 
 
 
+    // artificially added in from master branch 10:32am
+    // {los = props.data.map((anime) => (
+    //     anime.list_status.score
+    // ))}
+    // const d = props.data;
+    // const g = grouper(los);
+    // const p = percentage(los, g);
+    // const r = relative(p);
+    // const ag = animGrouper(d);
+
+    // console.log(r + "aaa")
+    // console.log(ag + "bbb")
+    
     
 
     return (
+
         <ImageList variant="standard">     
             
 
@@ -71,12 +86,16 @@ const AnimeList = (props) => {
                 Recommendations
             </Typography>
            </button>
+
+        // THE 3 LINES OF CODE BELOW ALLOW FOR BASIC FUNCTIONALITY OF CREATING A LIST OF ANIME ON A PERSON'S PROFILE
+        <ImageList>
+            {props.data.map((anime) => (<InfoCard key={anime.node.id} anime={anime}/>))}
+        </ImageList>
+
+        // // // FOLLOWING CODE BLOCK IS ARTICIALLY MERGED. 10:33am 
+        //  <ImageList variant="standard">     
             
-
-            {/* {props.data.map((anime) => (
-           <InfoCard key={anime.node.id} data={props.data} anime={anime}/> 
-           ))} */}
-
+        //      <Tagger ag={ag} r={r}/>
 
             {currentRec.map((anime) => {
                 console.log("in Currect rec");
@@ -84,7 +103,41 @@ const AnimeList = (props) => {
                 return <InfoCard key={anime[1].node.id} data={test} anime={anime}/> 
             })}
 
-         </ImageList>
+
+        //  </ImageList>
+
+        
+        // // EVERYTHING ELSE COMMENTED OUT BELOW IS OLD CODE FROM EARLIER ITERATIONS
+
+        // // <ImageList variant="standard">     
+        // //     <Grouper data={props}/>
+           
+        // //     {los = props.data.map((anime) => (
+        // //         anime.list_status.score
+        // //     ))}
+        
+        // <ImageList variant="standard">     
+            
+        //     <Tagger ag={ag} r={r}/>
+          
+
+        // //     {/* {log = props.data.map((anime) => (
+        // //         anime.node.genres[0].name
+        // //     ))} */}
+
+
+        // //     {relative(percentage(los, grouper(los)))}
+
+
+
+        // //     {/* {props.data.map((anime) => (
+        // //         anime.list_status.score
+        // //     ))},
+        // //     {props.data.map((anime) => (
+        // //         anime.node.genres[0].name
+        // //     ))} */}
+
+        // //  </ImageList>
     );
 };
 
