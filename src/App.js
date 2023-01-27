@@ -29,7 +29,7 @@ function App() {
     setSingleData(data);
   };
 
-  const search = (searchTerm) => {
+  const search = async (searchTerm) => {
     return fetch(
       `https://api.myanimelist.net/v2/users/${searchTerm}/animelist?limit=40&status=completed&sort=list_score&fields=mean,synopsis,genres,popularity,rank,media_type,start_season,list_status`, {
       method: 'GET',

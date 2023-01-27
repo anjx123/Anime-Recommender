@@ -16,7 +16,7 @@ const Home = () => {
 
     const handleSearch = (event) => {
         event.preventDefault();
-        setOutput(inputRef.current.value)
+       // setOutput(inputRef.current.value)
         search.search(input).then((data) => {
             console.log(data);
             search.setData(data.data);
