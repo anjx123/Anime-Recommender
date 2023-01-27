@@ -46,10 +46,6 @@ const AnimeList = (props) => {
              
         let smth = findAnime(simplifyList(simpleList(crTags(r, ag))), rankings).sort(([a, b], [c, d]) => c - a || b - d).slice(0, recAmount)
 
-        console.log (smth.map((anime) => (
-            anime[1].node.id
-        )))
-
         setCurrentRec(smth)     
     }
     
@@ -68,10 +64,9 @@ const AnimeList = (props) => {
             </Typography>
            </button>
 
-            {currentRec.map((anime) => {
-                console.log("in Currect rec");
-                console.log(anime);
-                return <InfoCard key={anime[1].node.id} data={test} anime={anime}/> 
+            {currentRec.map((anime, index) => {
+                
+                return <InfoCard key={anime[1].node.id} data={test} anime={anime} index={index}/> 
             })}
 
 

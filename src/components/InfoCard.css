@@ -24,6 +24,8 @@
 
 .card-title h2 {
     font-family: Tahoma, sans-serif;
+    flex-direction: column;
+    align-items: center;
     /* color: #0e4259; */
 }
 
