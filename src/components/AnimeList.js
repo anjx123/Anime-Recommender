@@ -13,6 +13,14 @@ var log = "";
 var info = [];
 var rankings = "";
 
+const ALLGENRE = `https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=500&fields=synopsis,genres`
+const SPRING2023 = `https://api.myanimelist.net/v2/anime/season/2023/spring?sort=anime_score&limit=500&fields=synopsis,genres`
+const WINTER2023 = `https://api.myanimelist.net/v2/anime/season/2023/winter?sort=anime_score&limit=500&fields=synopsis,genres`
+
+const RecommendedCategory = SPRING2023
+
+
+
 
 const AnimeList = (props) => {
     const [currentRec, setCurrentRec]=useState([]);
@@ -257,13 +265,11 @@ function craftTag(n, log, s) {
     return ddd;
 };
 
-const ALLGENRE = `https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=500&fields=synopsis,genres`
-const SPRING2023 = `https://api.myanimelist.net/v2/anime/season/2023/spring?sort=anime_score&limit=500&fields=synopsis,genres`
-const WINTER2023 = `https://api.myanimelist.net/v2/anime/season/2023/winter?sort=anime_score&limit=500&fields=synopsis,genres`
+
 
 function getRanking() {
     return fetch(
-        WINTER2023, {
+        RecommendedCategory, {
         method: 'GET',
         headers: {'X-MAL-CLIENT-ID': 'fbff9778d6f0ac20c5a30f6af55f207e'}
       })
