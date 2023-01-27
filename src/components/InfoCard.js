@@ -7,23 +7,23 @@ import Paper from '@mui/material/Paper';
 import { maxHeight } from '@mui/system';
 
 function InfoCard(props) {
+    const score = Math.floor(props.anime[0]);
+
     const id = props.anime[1].node.id
     const onClickHandler = () => {
         window.open("https://myanimelist.net/anime/".concat(id))
     }
 
+    console.log(props)
     
     var title = props.anime[1].node.title === null ? "": props.anime[1].node.title;
         title = title.length > 20 ? `${title.substring(0, 20)}...`: title;
     const imageUrl = props.anime[1].node.main_picture.large;
-    var synopsis = props.anime.node.synopsis === null ? "": props.anime.node.synopsis;
+    var synopsis = props.anime[1].node.synopsis === null ? "": props.anime[1].node.synopsis;
     synopsis = synopsis.length > 120 ? `${synopsis.substring(0, 120)}...`: synopsis;
 
     // !!! wishlist for the ranking of the recommendations
-    
-    var score = props.anime.list_status.score
-
-    console.log(title)
+   
 
     return (
         <div className="InfoCard-container">
@@ -35,9 +35,13 @@ function InfoCard(props) {
                     <div className="card-title">
                         <h2> 
                             {/* !!! FIGURE OUT SOME WAY TO PUT THE RANKING HERE FOLKS */}
-                            1. {/* RIGHT HERE */}
-                            {title} 
+                            Algorithm score: {score} {/* RIGHT HERE */}
+                            
                         </h2> 
+                        <h2>
+                            
+                        {title} 
+                        </h2>
                     </div>
                     
                     <img 
@@ -54,6 +58,7 @@ function InfoCard(props) {
                     </Typography>
                     </div>
                     
+
                     <div className="MALbutton">
                         <Button variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
                             Visit MyAnimeList Website Entry

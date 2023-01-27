@@ -24,7 +24,7 @@ const Results = () => {
                 setDataExists(false);
             }
         }
-        console.log(search.profileData);
+       
     }, [search]);
 
     return (
