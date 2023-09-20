@@ -11,25 +11,22 @@ var list1 = [];
 var los = "";
 var log = "";
 var info = [];
-var rankings = "";
 
 const ALLGENRE = `https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=500&fields=synopsis,genres`
 const SPRING2023 = `https://api.myanimelist.net/v2/anime/season/2023/spring?sort=anime_score&limit=500&fields=synopsis,genres`
 const WINTER2023 = `https://api.myanimelist.net/v2/anime/season/2023/winter?sort=anime_score&limit=500&fields=synopsis,genres`
 
-const RecommendedCategory = SPRING2023
+const RecommendedCategory = ALLGENRE
 
 
 
 
 const AnimeList = (props) => {
     const [currentRec, setCurrentRec]=useState([]);
+    const [rankings, setRankings] = useState(null);
     const [clear, setClear]= useState(false);
 
     const recAmount = 20;
-    
-
-    getRanking();
     {los = props.data.map((anime) => (
         anime.list_status.score
     ))}
@@ -42,12 +39,27 @@ const AnimeList = (props) => {
 
 
     let test=[];
-    const handleSearch = (event) => {
-             
-        let smth = findAnime(simplifyList(simpleList(crTags(r, ag))), rankings).sort(([a, b], [c, d]) => c - a || b - d).slice(0, recAmount)
+    const handleSearch = async () => {
+        if (rankings) { // Make sure rankings is not null
+          let smth = findAnime(simplifyList(simpleList(crTags(r, ag))), rankings).sort(([a, b], [c, d]) => c - a || b - d).slice(0, recAmount);
+          setCurrentRec(smth);
+        }
+      };
 
-        setCurrentRec(smth)     
-    }
+      useEffect(() => {
+        if (rankings) { // Make sure rankings is not null
+          handleSearch();
+        }
+      }, [rankings]);
+
+      useEffect(() => {
+        fetch(RecommendedCategory, {
+          method: 'GET',
+          headers: {'X-MAL-CLIENT-ID': 'fbff9778d6f0ac20c5a30f6af55f207e'}
+        })
+        .then((response) => response.json())
+        .then((data) => setRankings(data)); // Use the state setter function here
+      }, []);
     
 
     
@@ -57,12 +69,12 @@ const AnimeList = (props) => {
 
         <ImageList cols={4} >     
             
-           <button onClick={handleSearch} variant="h1">
+           {/* <button onClick={handleSearch} variant="h1">
 
             <Typography>
                 Recommendations
             </Typography>
-           </button>
+           </button> */}
 
             {currentRec.map((anime, index) => {
                 
@@ -262,16 +274,8 @@ function craftTag(n, log, s) {
 
 
 
-function getRanking() {
-    return fetch(
-        RecommendedCategory, {
-        method: 'GET',
-        headers: {'X-MAL-CLIENT-ID': 'fbff9778d6f0ac20c5a30f6af55f207e'}
-      })
-      .then((response) => response.json())
-      .then((data) => rankings = data);
 
-} // https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=500&fields=genres
+   // https://api.myanimelist.net/v2/anime/ranking?ranking_type=all&limit=500&fields=genres
   // https://api.myanimelist.net/v2/anime/season/2023/spring?sort=anime_score&limit=500&fields=synopsis,genres
   // https://api.myanimelist.net/v2/anime/season/2023/winter?sort=anime_score&limit=500&fields=synopsis,genres
 
